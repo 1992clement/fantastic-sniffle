@@ -7,9 +7,13 @@ RUN chown -R node:node $LOCAL/bin && \
 	chown -R node:node $LOCAL/lib
 
 USER node
-WORKDIR $HOME
 
 RUN npm install -g @angular/cli@1.1.0-beta.0
+
+RUN mkdir $HOME/ctest-app
+WORKDIR $HOME/ctest-app/
+
+COPY ./* $HOME/ctest-app/
 
 USER root
 
@@ -17,3 +21,5 @@ RUN chown -R root:root $LOCAL/bin && \
 	chown -R root:root $LOCAL/lib
 
 USER node
+
+RUN npm install
