@@ -1,7 +1,0 @@
-ctest-app:
-  build: .
-  command: echo 'ready'
-  volumes: 
-    - .:/home/node
-  ports:
-    - "4200:4200"
